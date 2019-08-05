@@ -8,10 +8,31 @@
     <artifactId>rikudo</artifactId>
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
+
+    <!-- 项目模块信息-->
     <modules>
-        <module>rikudo-netty-action</module>
         <module>rikudo-common</module>
+        <module>rikudo-netty-action</module>
     </modules>
 
+    <!-- 依赖管理-->
+    <dependencyManagement>
+        <dependencies>
+            <!-- netty-->
+            <dependency>
+                <groupId>io.netty</groupId>
+                <artifactId>netty-all</artifactId>
+                <version>4.1.30.Final</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <!-- 开发者信息-->
+    <developers>
+        <developer>
+            <name>lenn</name>
+            <email>lenn1024@163.com</email>
+        </developer>
+    </developers>
 
 </project>
