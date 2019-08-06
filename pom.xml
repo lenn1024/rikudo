@@ -15,6 +15,12 @@
         <module>rikudo-netty-action</module>
     </modules>
 
+    <properties>
+        <netty.version>4.1.30.Final</netty.version>
+        <slf4j.version>1.7.25</slf4j.version>
+        <log4j.version>2.12.0</log4j.version>
+    </properties>
+
     <!-- 依赖管理-->
     <dependencyManagement>
         <dependencies>
@@ -22,10 +28,59 @@
             <dependency>
                 <groupId>io.netty</groupId>
                 <artifactId>netty-all</artifactId>
-                <version>4.1.30.Final</version>
+                <version>${netty.version}</version>
             </dependency>
+
+            <!-- log jars-->
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-api</artifactId>
+                <version>${slf4j.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.logging.log4j</groupId>
+                <artifactId>log4j-slf4j-impl</artifactId>
+                <version>${log4j.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.logging.log4j</groupId>
+                <artifactId>log4j-core</artifactId>
+                <version>${log4j.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.lmax</groupId>
+                <artifactId>disruptor</artifactId>
+                <version>3.3.6</version>
+            </dependency>
+            <!-- log jars end-->
         </dependencies>
     </dependencyManagement>
+
+    <!-- 通用依赖-->
+    <dependencies>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-slf4j-impl</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-core</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.lmax</groupId>
+            <artifactId>disruptor</artifactId>
+        </dependency>
+    </dependencies>
 
     <!-- 开发者信息-->
     <developers>
