@@ -13,6 +13,7 @@
     <modules>
         <module>rikudo-common</module>
         <module>rikudo-netty-action</module>
+        <module>rikudo-test</module>
     </modules>
 
     <properties>

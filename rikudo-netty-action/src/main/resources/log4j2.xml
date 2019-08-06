@@ -19,6 +19,7 @@
             </Policies>
             <DefaultRolloverStrategy max="5"/>
         </RollingRandomAccessFile>
+
         <RollingRandomAccessFile name="nettyActionLog" fileName="${appFileName}"
                                  filePattern="${appFilePattern}" immediateFlush="false" >
             <PatternLayout pattern="${patternlayout}"/>
@@ -27,11 +28,18 @@
             </Policies>
             <DefaultRolloverStrategy max="5"/>
         </RollingRandomAccessFile>
+
+        <!-- 控制台appender-->
+        <Console name="console" target="SYSTEM_OUT">
+            <PatternLayout pattern="${patternlayout}" />
+        </Console>
     </Appenders>
 
     <Loggers>
+        <!-- 同时输出到文件以及控制台-->
         <Logger name="ai.code.practise.rikudo" level="info" additivity="false">
             <AppenderRef ref="nettyActionLog"/>
+            <AppenderRef ref="console"/>
         </Logger>
         <Root level="error">
             <AppenderRef ref="globalLog"/>
