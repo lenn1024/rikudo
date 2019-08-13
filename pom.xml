@@ -14,17 +14,68 @@
         <module>rikudo-common</module>
         <module>rikudo-netty-action</module>
         <module>rikudo-test</module>
+        <module>rikudo-spring-action</module>
     </modules>
 
     <properties>
         <netty.version>4.1.30.Final</netty.version>
         <slf4j.version>1.7.25</slf4j.version>
         <log4j.version>2.12.0</log4j.version>
+        <spring.version>4.1.7.RELEASE</spring.version>
     </properties>
 
     <!-- 依赖管理-->
     <dependencyManagement>
         <dependencies>
+            <!-- spring jars-->
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-core</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-beans</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-context</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-context-support</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-expression</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-aop</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-tx</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-jdbc</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+
             <!-- netty-->
             <dependency>
                 <groupId>io.netty</groupId>
