@@ -15,6 +15,7 @@
         <module>rikudo-netty-action</module>
         <module>rikudo-test</module>
         <module>rikudo-spring-action</module>
+        <module>rikudo-java-action</module>
     </modules>
 
     <properties>
