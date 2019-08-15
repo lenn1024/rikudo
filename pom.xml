@@ -16,6 +16,7 @@
         <module>rikudo-test</module>
         <module>rikudo-spring-action</module>
         <module>rikudo-java-action</module>
+        <module>rikudo-akka-action</module>
     </modules>
 
     <properties>
@@ -109,6 +110,19 @@
                 <version>3.3.6</version>
             </dependency>
             <!-- log jars end-->
+
+            <!-- akka jars-->
+            <dependency>
+                <groupId>com.typesafe.akka</groupId>
+                <artifactId>akka-actor_2.12</artifactId>
+                <version>2.5.18</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.scala-lang</groupId>
+                <artifactId>scala-library</artifactId>
+                <version>2.10.4</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
@@ -142,5 +156,20 @@
             <email>lenn1024@163.com</email>
         </developer>
     </developers>
+
+    <build>
+        <!-- 插件配置-->
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
 
 </project>
