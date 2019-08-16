@@ -1,6 +1,5 @@
-package ai.code.practise.rikudo.spring.component;
+package ai.code.practise.rikudo.spring.aop.advisor;
 
-import ai.code.practise.rikudo.spring.annotation.Loggable;
 import org.springframework.stereotype.Component;
 
 @Loggable

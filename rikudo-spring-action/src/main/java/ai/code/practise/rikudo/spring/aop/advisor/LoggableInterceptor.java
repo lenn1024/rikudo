@@ -1,4 +1,4 @@
-package ai.code.practise.rikudo.spring.aop.interceptor;
+package ai.code.practise.rikudo.spring.aop.advisor;
 
 import org.aopalliance.intercept.MethodInterceptor;
 import org.aopalliance.intercept.MethodInvocation;

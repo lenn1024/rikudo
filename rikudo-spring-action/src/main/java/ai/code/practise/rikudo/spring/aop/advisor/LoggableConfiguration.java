@@ -1,7 +1,5 @@
-package ai.code.practise.rikudo.spring.autoconfig;
+package ai.code.practise.rikudo.spring.aop.advisor;
 
-import ai.code.practise.rikudo.spring.annotation.Loggable;
-import ai.code.practise.rikudo.spring.aop.interceptor.LoggableInterceptor;
 import org.springframework.aop.support.DefaultPointcutAdvisor;
 import org.springframework.aop.support.annotation.AnnotationMatchingPointcut;
 import org.springframework.context.annotation.Bean;

@@ -1,4 +1,4 @@
-package ai.code.practise.rikudo.spring.annotation;
+package ai.code.practise.rikudo.spring.aop.advisor;
 
 import java.lang.annotation.*;
 
