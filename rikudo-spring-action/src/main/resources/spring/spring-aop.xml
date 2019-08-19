@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+    <!-- 使用Advisor做AOP时必须配置-->
+    <bean class="org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator"/>
+
+    <!-- aop-->
+    <bean id="filmLover" class="ai.code.practise.rikudo.spring.aop.xmlconfig.FilmLover">
+        <constructor-arg name="name">
+            <value>lenn</value>
+        </constructor-arg>
+    </bean>
+
+    <bean id="filmWatchAspect" class="ai.code.practise.rikudo.spring.aop.xmlconfig.FilmWatchAspect"/>
+
+    <aop:config>
+        <!-- 声明切面-->
+        <aop:aspect ref="filmWatchAspect">
+            <!-- 声明切点：带参数-->
+            <!--<aop:pointcut id="watchFilmPointCut" expression="execution(* ai.code.practise.rikudo.spring.aop.xmlconfig.FilmLover.watchFilm(String)) and args(filmName)"/>-->
+            <aop:pointcut id="watchFilmPointCut" expression="execution(* ai.code.practise.rikudo.spring.aop.xmlconfig.FilmLover.watchFilm(..))"/>
+            <!-- 前置通知-->
+            <aop:before method="selectFilm" pointcut-ref="watchFilmPointCut"/>
+            <!-- 前置通知-->
+            <!--<aop:before method="buyTicket" arg-names="filmName" pointcut-ref="watchFilmPointCut"/>-->
+            <!-- 后置通知-->
+            <!--<aop:after method="writeFilmReview" arg-names="filmName" pointcut-ref="watchFilmPointCut"/>-->
+        </aop:aspect>
+    </aop:config>
+</beans>

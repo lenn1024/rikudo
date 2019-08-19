@@ -7,7 +7,7 @@
     <!-- 配置package自动扫描-->
     <context:component-scan base-package="ai.code.practise.rikudo.spring"/>
 
-    <!-- 使用Advisor做AOP时必须配置-->
-    <bean class="org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator"/>
+    <!-- Spring配置引入-->
+    <import resource="classpath:spring/spring-aop.xml"/>
 
 </beans>
