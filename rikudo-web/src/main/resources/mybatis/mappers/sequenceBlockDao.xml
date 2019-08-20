@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="ai.code.practise.rikudo.web.demo.SequenceBlockDemo">
+
+    <!-- 根据业务名字查询序列号区块-->
+    <select id="queryByBizName" parameterType="string" resultType="ai.code.practise.rikudo.web.entity.SequenceBlock">
+        select
+          biz_name as bizName,
+          val as `currentVal`
+        from sequence_block
+        where biz_name=#{bizName}
+    </select>
+
+    <!-- 生成序列号-->
+    <insert id="insertItem" parameterType="ai.code.practise.rikudo.web.entity.SequenceBlock">
+        insert into sequence_block(biz_name, val) values(#{bizName}, #{currentVal})
+    </insert>
+
+    <update id="updateSequenceBlock" parameterType="ai.code.practise.rikudo.web.entity.SequenceBlock">
+        update sequence_block
+        set val = #{endVal}
+        where biz_name = #{bizName}
+        and val = #{currentVal}
+    </update>
+
+</mapper>

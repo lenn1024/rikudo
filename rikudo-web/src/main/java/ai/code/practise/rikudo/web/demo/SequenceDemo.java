@@ -1,4 +1,4 @@
-package ai.code.practise.rikudo.web.dao;
+package ai.code.practise.rikudo.web.demo;
 
 import ai.code.practise.rikudo.web.entity.Sequence;
 import org.apache.ibatis.io.Resources;
@@ -9,7 +9,7 @@ import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 import java.io.IOException;
 import java.io.InputStream;
 
-public class SequenceDao {
+public class SequenceDemo {
 
     public static void main(String args[]) throws IOException {
         String resource = "mybatis/mybatis-config.xml";
@@ -19,14 +19,12 @@ public class SequenceDao {
         Sequence sequence = new Sequence();
         sequence.setBizName("fresh");
 
-        long start = System.currentTimeMillis();
-        for(int i = 0; i < 10000; i++){
+        for(int i = 0; i < 100; i++){
             SqlSession sqlSession = sqlSessionFactory.openSession();
-            sqlSession.update("ai.code.practise.rikudo.web.dao.SequenceDao.update", sequence);
+            sqlSession.update("ai.code.practise.rikudo.web.demo.SequenceDemo.update", sequence);
             //System.out.println(sequence.getCurrentValue());
             sqlSession.commit();
             sqlSession.close();
         }
-        System.out.println((System.currentTimeMillis() - start) / 1000 + "s");
     }
 }
