@@ -7,6 +7,11 @@
     <!-- properties配置引入-->
     <context:property-placeholder location="classpath*:properties/*.properties"/>
 
+    <!-- package 扫描-->
+    <context:component-scan base-package="ai.code.practise.rikudo.web.dao"/>
+    <context:component-scan base-package="ai.code.practise.rikudo.web.service"/>
+
     <!-- import files-->
+    <import resource="spring/spring-dao.xml"/>
     <import resource="spring/spring-mybatis.xml"/>
 </beans>

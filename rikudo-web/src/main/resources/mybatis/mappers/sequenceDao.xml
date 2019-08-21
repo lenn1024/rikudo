@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 
-<mapper namespace="ai.code.practise.rikudo.web.demo.SequenceDemo">
+<mapper namespace="ai.code.practise.rikudo.web.dao.SequenceDao">
 
     <!-- 生成序列号-->
-    <insert id="update" parameterType="ai.code.practise.rikudo.web.entity.Sequence">
+    <insert id="updateNextSequence" parameterType="sequence">
         update sequence
         set current_value = last_insert_id(current_value + _increament)
         where biz_name=#{bizName}
 
-        <selectKey keyProperty="currentValue" resultType="long" order="AFTER">
+        <selectKey keyProperty="id" resultType="long" order="AFTER">
             select last_insert_id()
         </selectKey>
     </insert>

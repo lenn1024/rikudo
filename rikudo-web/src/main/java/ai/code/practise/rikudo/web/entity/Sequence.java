@@ -10,7 +10,5 @@ public class Sequence {
 
     private String bizName;
 
-    private Long currentValue;
-
-    private Integer _increament;
+    private Long id;
 }

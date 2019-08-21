@@ -34,6 +34,7 @@
         <spring.version>4.1.7.RELEASE</spring.version>
         <lombok.version>1.18.4</lombok.version>
         <aspect.version>1.8.9</aspect.version>
+        <junit.version>4.9</junit.version>
     </properties>
 
     <!-- 依赖管理-->
@@ -98,6 +99,21 @@
                 <groupId>org.springframework</groupId>
                 <artifactId>spring-webmvc</artifactId>
                 <version>${spring.version}</version>
+            </dependency>
+
+            <!-- test-->
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-test</artifactId>
+                <version>${spring.version}</version>
+                <scope>provided</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>junit</groupId>
+                <artifactId>junit</artifactId>
+                <version>${junit.version}</version>
+                <scope>test</scope>
             </dependency>
 
             <!-- aspect version-->

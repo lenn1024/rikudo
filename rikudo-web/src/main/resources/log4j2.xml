@@ -4,10 +4,10 @@
 		<property name="patternlayout">
 			%d [%t]  %-5p %c - %msg%n
 		</property>
-        <property name="appFileName">/export/Logs/rikudo.practise.code.ai/netty-action.log</property>
-        <property name="appFilePattern">/export/Logs/rikudo.practise.code.ai/netty-action-%i.log</property>
-		<property name="globalFileName">/export/Logs/rikudo.practise.code.ai/netty-action_error.log</property>
-		<property name="globalFilePattern">/export/Logs/rikudo.practise.code.ai/netty-action_error-%i.log</property>
+        <property name="appFileName">/export/Logs/rikudo.practise.code.ai/web-action.log</property>
+        <property name="appFilePattern">/export/Logs/rikudo.practise.code.ai/web-action-%i.log</property>
+		<property name="globalFileName">/export/Logs/rikudo.practise.code.ai/web-action_error.log</property>
+		<property name="globalFilePattern">/export/Logs/rikudo.practise.code.ai/web-action_error-%i.log</property>
 	</properties>
 
     <Appenders>

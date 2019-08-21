@@ -39,7 +39,7 @@
         <!-- 自动扫描mapping.xml文件 -->
         <property name="mapperLocations" value="classpath*:mybatis/mappers/*Dao.xml"/>
         <!-- 它一般对应我们的实体类所在的包 -->
-        <property name="typeAliasesPackage" value="com.jd.fce.orb.monitor.domain" />
+        <property name="typeAliasesPackage" value="ai.code.practise.rikudo.web.entity" />
     </bean>
 
     <!-- 事务管理器 -->

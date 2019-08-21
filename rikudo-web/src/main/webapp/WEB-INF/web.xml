@@ -28,6 +28,9 @@
 
     <servlet-mapping>
         <servlet-name>dispatcherServlet</servlet-name>
+        <!-- 匹配规则既不是简单的通配，也不是正则表达式，而是特定的规则-->
+        <!-- /* 路径匹配-->
+        <!-- / 缺省匹配-->
         <url-pattern>/*</url-pattern>
     </servlet-mapping>
 
