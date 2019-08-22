@@ -13,9 +13,9 @@ public class FilmWatchAspect {
      * 挑选电影
      * @return
      */
-    public String selectFilm(){
-        log.info("select a film to watch.");
-        return "八臂哪吒";
+    public String selectFilm(String filmName){
+        log.info("select a film({}) to watch.", filmName);
+        return filmName;
     }
 
     /**

@@ -18,6 +18,9 @@ public class SequenceServiceTest {
 
     private static Logger logger = LoggerFactory.getLogger(SequenceServiceTest.class);
 
+    @Autowired
+    private SequenceService sequenceService;
+
     /**
      * 定义一个线程池
      */
@@ -29,9 +32,6 @@ public class SequenceServiceTest {
             new ArrayBlockingQueue<>(1),
             Executors.defaultThreadFactory(),
             new ThreadPoolExecutor.AbortPolicy());
-
-    @Autowired
-    private SequenceService sequenceService;
 
     /**
      * 多线程测试id生成
@@ -52,5 +52,13 @@ public class SequenceServiceTest {
         });
         // sleep 1.5s to wait task execute end.
         SleepHelper.sleep(1500);
+    }
+
+    @Test
+    public void testGetBlockNextId(){
+        String bizName = "fresh";
+        for(int i = 0; i < 150; i++){
+            logger.info("generate block id: {}.", sequenceService.getBlockNextId(bizName));
+        }
     }
 }

@@ -3,19 +3,18 @@
 
 <mapper namespace="ai.code.practise.rikudo.web.dao.SequenceBlockDao">
 
+    <!-- 生成序列号-->
+    <insert id="newSequenceBlock" parameterType="ai.code.practise.rikudo.web.entity.SequenceBlock">
+        insert into sequence_block(biz_name, val) values(#{bizName}, #{currentVal})
+    </insert>
+
     <!-- 根据业务名字查询序列号区块-->
-    <select id="queryByBizName" parameterType="string" resultType="ai.code.practise.rikudo.web.entity.SequenceBlock">
+    <select id="getSequenceBlockVal" parameterType="string" resultType="long">
         select
-          biz_name as bizName,
-          val as `currentVal`
+          val
         from sequence_block
         where biz_name=#{bizName}
     </select>
-
-    <!-- 生成序列号-->
-    <insert id="insertItem" parameterType="ai.code.practise.rikudo.web.entity.SequenceBlock">
-        insert into sequence_block(biz_name, val) values(#{bizName}, #{currentVal})
-    </insert>
 
     <update id="updateSequenceBlock" parameterType="ai.code.practise.rikudo.web.entity.SequenceBlock">
         update sequence_block

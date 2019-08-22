@@ -23,4 +23,8 @@ public class FilmLover {
     public void watchFilm(String filmName){
         log.info("{} watch film: {}.", this.name, filmName);
     }
+
+    public void downloadFilm(String filmName){
+        log.info("{} download the film of {}.", this.name, filmName);
+    }
 }

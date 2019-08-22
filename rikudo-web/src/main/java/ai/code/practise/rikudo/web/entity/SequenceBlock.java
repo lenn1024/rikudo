@@ -8,7 +8,7 @@ import lombok.Data;
 @Data
 public class SequenceBlock {
 
-    public static final Long BLOCK_LEN = 10000L;
+    public static final Long BLOCK_LEN = 100L;
 
     /**
      * 业务名称

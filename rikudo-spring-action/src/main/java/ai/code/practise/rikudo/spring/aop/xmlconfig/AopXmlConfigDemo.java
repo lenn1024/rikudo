@@ -7,9 +7,13 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  * xml config aop 实现
  */
 public class AopXmlConfigDemo {
+
     public static void main(String[] args){
         ApplicationContext applicationContext = new ClassPathXmlApplicationContext("spring/applicationContext.xml");
         FilmLover filmLover = (FilmLover) applicationContext.getBean("filmLover");
-        filmLover.watchFilm("八臂哪吒");
+
+        String filmName = "八臂哪吒";
+        filmLover.downloadFilm(filmName);
+        filmLover.watchFilm(filmName);
     }
 }

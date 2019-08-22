@@ -3,10 +3,7 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
 
-    <!-- 使用Advisor做AOP时必须配置-->
-    <bean class="org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator"/>
-
-    <!-- aop-->
+    <!-- aop xml config-->
     <bean id="filmLover" class="ai.code.practise.rikudo.spring.aop.xmlconfig.FilmLover">
         <constructor-arg name="name">
             <value>lenn</value>
@@ -14,19 +11,34 @@
     </bean>
 
     <bean id="filmWatchAspect" class="ai.code.practise.rikudo.spring.aop.xmlconfig.FilmWatchAspect"/>
+    <bean id="filmDownloadAspect" class="ai.code.practise.rikudo.spring.aop.xmlconfig.FilmDownloadAspect"/>
 
     <aop:config>
+        <!-- 声明切点：带参数-->
+        <aop:pointcut id="watchFilmPointCut" expression="execution(* ai.code.practise.rikudo.spring.aop.xmlconfig.FilmLover.watchFilm(..)) and args(filmName)"/>
         <!-- 声明切面-->
         <aop:aspect ref="filmWatchAspect">
-            <!-- 声明切点：带参数-->
-            <!--<aop:pointcut id="watchFilmPointCut" expression="execution(* ai.code.practise.rikudo.spring.aop.xmlconfig.FilmLover.watchFilm(String)) and args(filmName)"/>-->
-            <aop:pointcut id="watchFilmPointCut" expression="execution(* ai.code.practise.rikudo.spring.aop.xmlconfig.FilmLover.watchFilm(..))"/>
             <!-- 前置通知-->
             <aop:before method="selectFilm" pointcut-ref="watchFilmPointCut"/>
             <!-- 前置通知-->
-            <!--<aop:before method="buyTicket" arg-names="filmName" pointcut-ref="watchFilmPointCut"/>-->
+            <aop:before method="buyTicket" arg-names="filmName" pointcut-ref="watchFilmPointCut"/>
             <!-- 后置通知-->
-            <!--<aop:after method="writeFilmReview" arg-names="filmName" pointcut-ref="watchFilmPointCut"/>-->
+            <aop:after method="writeFilmReview" arg-names="filmName" pointcut-ref="watchFilmPointCut"/>
         </aop:aspect>
     </aop:config>
+
+    <aop:config>
+        <!-- 声明切点：带参数-->
+        <aop:pointcut id="downloadFilmPointCut" expression="execution(* ai.code.practise.rikudo.spring.aop.xmlconfig.FilmLover.downloadFilm(..))"/>
+
+        <aop:aspect ref="filmDownloadAspect">
+            <aop:around method="downloadFilm" pointcut-ref="downloadFilmPointCut"/>
+        </aop:aspect>
+
+    </aop:config>
+
+    <!-- aop annotation config-->
+    <aop:aspectj-autoproxy />
+    <bean id="driveAspect" class="ai.code.practise.rikudo.spring.aop.annotationconfig.DriveAspect"/>
+    <bean id="rikudoDriver" class="ai.code.practise.rikudo.spring.aop.annotationconfig.RikudoDriver"/>
 </beans>
