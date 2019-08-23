@@ -6,10 +6,10 @@ import java.io.IOException;
 /**
  * 自定义ClassLoader
  */
-public class DemoClassLoader extends ClassLoader {
+public class ClassLoaderDemo extends ClassLoader {
 
     public static void main(String[] args) throws ClassNotFoundException {
-        DemoClassLoader demoClassLoader = new DemoClassLoader("/Users/lenn/lab");
+        ClassLoaderDemo demoClassLoader = new ClassLoaderDemo("/Users/lenn/lab");
         Class<?> clazz = demoClassLoader.loadClass("ai.code.mikasa.TestCaseClass");
 
         System.out.println("我是由[" + clazz.getClassLoader().getClass() + "]加载进来的。");
@@ -17,7 +17,7 @@ public class DemoClassLoader extends ClassLoader {
 
     private String classPath;
 
-    public DemoClassLoader(String classPath) {
+    public ClassLoaderDemo(String classPath) {
         this.classPath = classPath;
     }
 
