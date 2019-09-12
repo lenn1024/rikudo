@@ -10,8 +10,26 @@ import java.util.ServiceLoader;
 public class TestMain {
 
     @Test
-    public void testFloat(){
-        log.info("{}", 0f);
+    public void testString(){
+        String s1 = "lenn";
+        String s2 = "lenn";
+        log.info("s1 == s2 : {}", s1 == s2);
+
+        String s3 = new String("lenn");
+        String s4 = new String("lenn");
+        log.info("s1 == s3 : {}", s1 == s3);
+        log.info("s3 == s4 : {}", s3 == s4);
+
+        StringBuilder sb = new StringBuilder("lenn");
+        String s5 = sb.toString();
+        String s6 = sb.toString();
+        log.info("s5 == s6: {}", s5 == s6);
+
+        String s7 = new StringBuilder("计算机").append("软件").toString();
+        log.info("s7.intern() == s7: {}", s7.intern() == s7);
+
+        String s8 = new StringBuilder("ja").append("va").toString();
+        log.info("s8.intern() == s8: {}", s8.intern() == s8);
     }
 
     /**
