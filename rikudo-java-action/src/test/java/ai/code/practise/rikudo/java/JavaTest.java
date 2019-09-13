@@ -6,8 +6,19 @@ import org.junit.Test;
 
 import java.util.ServiceLoader;
 
+/**
+ * Java语法小测试
+ */
 @Slf4j
-public class TestMain {
+public class JavaTest {
+
+    @Test
+    public void testArray(){
+        int[] arr1 = new int[10];
+        int[] arr2 = new int[5];
+
+        System.arraycopy(arr1, 0, arr2, 0, 5);
+    }
 
     @Test
     public void testString(){

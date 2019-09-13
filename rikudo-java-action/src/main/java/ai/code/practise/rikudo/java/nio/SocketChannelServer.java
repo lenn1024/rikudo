@@ -24,16 +24,17 @@ public class SocketChannelServer {
             serverSocketChannel.configureBlocking(false);
 
             log.info("服务端启动...");
+            ByteBuffer buffer = ByteBuffer.allocate(60);
             while (true){
                 // accept 新连接
                 SocketChannel socketChannel = serverSocketChannel.accept();
                 if(socketChannel != null){
-                    ByteBuffer buffer = ByteBuffer.allocate(60);
                     int readBytes = socketChannel.read(buffer);
                     if(readBytes != 0){
                         byte[] bytes = new byte[readBytes];
                         buffer.flip();
                         buffer.get(bytes);
+                        buffer.clear();
                         log.info("receive message from client: {}", new String(bytes, Charset.forName("utf-8")));
                     }
                 }
