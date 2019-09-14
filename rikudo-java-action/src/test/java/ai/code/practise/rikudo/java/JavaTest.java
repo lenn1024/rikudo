@@ -4,6 +4,7 @@ import ai.code.practise.rikudo.java.spi.Flyable;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
 
+import java.util.Arrays;
 import java.util.ServiceLoader;
 
 /**
@@ -18,6 +19,11 @@ public class JavaTest {
         int[] arr2 = new int[5];
 
         System.arraycopy(arr1, 0, arr2, 0, 5);
+
+        int[] originalArr = {1, 2, 3, 4, 5};
+        int[] destArr = Arrays.copyOf(originalArr, 10);
+
+        log.info("dest arr is {}.", Arrays.asList(destArr));
     }
 
     @Test

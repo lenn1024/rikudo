@@ -27,7 +27,7 @@ public class SchedulerThreadPoolDemo {
         );
 
         executorService.scheduleWithFixedDelay(() -> {
-            logger.info("当前时间1: {}.", new SimpleDateFormat("YYYY-MM-dd HH:mm:ss").format(new Date()));
+            logger.info("当前时间: {}.", new SimpleDateFormat("YYYY-MM-dd HH:mm:ss").format(new Date()));
         }, 1, 1, TimeUnit.SECONDS);
     }
 }
