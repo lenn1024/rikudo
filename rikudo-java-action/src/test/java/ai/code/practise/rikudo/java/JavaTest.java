@@ -1,17 +1,34 @@
 package ai.code.practise.rikudo.java;
 
+import ai.code.practise.rikudo.common.SleepHelper;
 import ai.code.practise.rikudo.java.spi.Flyable;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
 
 import java.util.Arrays;
 import java.util.ServiceLoader;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 /**
  * Java语法小测试
  */
 @Slf4j
 public class JavaTest {
+
+    @Test
+    public void testThreadPool(){
+        ExecutorService threadPoolExecutor = Executors.newCachedThreadPool();
+
+        threadPoolExecutor.submit(() -> {
+           for(int i = 0; i < 10; i++){
+               log.info("this number is {}.", i);
+           }
+        });
+
+        SleepHelper.sleep(3000);
+        threadPoolExecutor.shutdown();
+    }
 
     @Test
     public void testArray(){
