@@ -1,4 +1,4 @@
-package ai.code.practise.rikudo.java.concurrent;
+package ai.code.practise.rikudo.java.concurrent.exercise;
 
 import lombok.extern.slf4j.Slf4j;
 
