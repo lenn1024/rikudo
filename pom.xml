@@ -19,6 +19,7 @@
         <module>rikudo-akka-action</module>
         <module>rikudo-web</module>
         <module>rikudo-middleware</module>
+        <module>rikudo-design-pattern-action</module>
     </modules>
 
     <properties>
