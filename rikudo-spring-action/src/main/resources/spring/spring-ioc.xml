@@ -3,7 +3,7 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="beauty" class="ai.code.practise.rikudo.spring.domain.Beauty">
+    <bean id="beauty" class="ai.code.practise.rikudo.spring.domain.Beauty" lazy-init="true">
         <property name="name" value="容嬷嬷"/>
         <property name="age" value="78"/>
     </bean>
