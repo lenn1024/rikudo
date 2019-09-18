@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="warn" name="rikudo-log" packages="">
+	<properties>
+		<property name="patternlayout">
+			%d [%t]  %-5p %c - %msg%n
+		</property>
+        <property name="appFileName">/export/Logs/rikudo.practise.code.ai/design-pattern.log</property>
+        <property name="appFilePattern">/export/Logs/rikudo.practise.code.ai/design-pattern-%i.log</property>
+		<property name="globalFileName">/export/Logs/rikudo.practise.code.ai/design-pattern_error.log</property>
+		<property name="globalFilePattern">/export/Logs/rikudo.practise.code.ai/design-pattern_error-%i.log</property>
+	</properties>
+
+    <Appenders>
+        <RollingRandomAccessFile name="globalLog" fileName="${globalFileName}"
+                                 filePattern="${globalFilePattern}" immediateFlush="false" >
+            <PatternLayout pattern="${patternlayout}" />
+            <Policies>
+                <SizeBasedTriggeringPolicy size="1G"/>
+            </Policies>
+            <DefaultRolloverStrategy max="5"/>
+        </RollingRandomAccessFile>
+
+        <RollingRandomAccessFile name="nettyActionLog" fileName="${appFileName}"
+                                 filePattern="${appFilePattern}" immediateFlush="false" >
+            <PatternLayout pattern="${patternlayout}"/>
+            <Policies>
+                <SizeBasedTriggeringPolicy size="1G"/>
+            </Policies>
+            <DefaultRolloverStrategy max="5"/>
+        </RollingRandomAccessFile>
+
+        <!-- 控制台appender-->
+        <Console name="console" target="SYSTEM_OUT">
+            <PatternLayout pattern="${patternlayout}" />
+        </Console>
+    </Appenders>
+
+    <Loggers>
+        <!-- 同时输出到文件以及控制台-->
+        <Logger name="ai.code.practise.rikudo" level="info" additivity="false">
+            <AppenderRef ref="nettyActionLog"/>
+            <AppenderRef ref="console"/>
+        </Logger>
+        <Root level="error">
+            <AppenderRef ref="globalLog"/>
+        </Root>
+    </Loggers>
+</Configuration>
