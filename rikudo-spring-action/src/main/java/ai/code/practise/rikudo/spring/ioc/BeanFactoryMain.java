@@ -25,6 +25,6 @@ public class BeanFactoryMain {
 
         // 使用构造好的Ioc容器
         Beauty beauty = beanFactory.getBean(Beauty.class);
-        log.info("华哥今天上了一个美女: {}.", beauty);
+        log.info("管哥今天碰见了一个美女: {}.", beauty);
     }
 }

@@ -11,4 +11,6 @@ public class Beauty {
     private String name;
 
     private int age;
+
+    private Car car;
 }

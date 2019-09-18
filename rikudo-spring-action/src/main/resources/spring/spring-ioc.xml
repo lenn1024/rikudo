@@ -3,9 +3,15 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="beauty" class="ai.code.practise.rikudo.spring.domain.Beauty" lazy-init="true">
-        <property name="name" value="容嬷嬷"/>
-        <property name="age" value="78"/>
+    <bean id="car" class="ai.code.practise.rikudo.spring.domain.Car">
+        <property name="name" value="小蓝"/>
+        <property name="brand" value="兰博基尼"/>
+    </bean>
+
+    <bean id="beauty" class="ai.code.practise.rikudo.spring.domain.Beauty"
+          lazy-init="true" autowire="byType">
+        <property name="name" value="三吉彩花"/>
+        <property name="age" value="18"/>
     </bean>
 
 </beans>
