@@ -36,7 +36,7 @@
         <spring.version>4.3.25.RELEASE</spring.version>
         <lombok.version>1.18.4</lombok.version>
         <aspect.version>1.8.9</aspect.version>
-        <junit.version>4.9</junit.version>
+        <junit.version>4.12</junit.version>
         <hystrix.version>1.5.18</hystrix.version>
     </properties>
 

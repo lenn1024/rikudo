@@ -31,4 +31,19 @@ public class FilmWatchAspect {
     public void writeFilmReview(String filmName){
         log.info("write film review of {}.", filmName);
     }
+
+    /**
+     * 退票
+     * @param filmName
+     */
+    public void refund(String filmName){
+        log.info("电影不好看，退票。");
+    }
+
+    /**
+     * 走出电影院
+     */
+    public void walkOutOfCinema(String filmName){
+        log.info("Walk out of the cinema.");
+    }
 }

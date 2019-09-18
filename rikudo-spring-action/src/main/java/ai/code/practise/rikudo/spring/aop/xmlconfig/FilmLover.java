@@ -22,6 +22,7 @@ public class FilmLover {
 
     public void watchFilm(String filmName){
         log.info("{} watch film: {}.", this.name, filmName);
+        throw new RuntimeException("电影太垃圾了，不看了。");
     }
 
     public void downloadFilm(String filmName){

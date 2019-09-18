@@ -22,8 +22,12 @@
             <aop:before method="selectFilm" pointcut-ref="watchFilmPointCut"/>
             <!-- 前置通知-->
             <aop:before method="buyTicket" arg-names="filmName" pointcut-ref="watchFilmPointCut"/>
+            <!-- 返回后通知-->
+            <aop:after-returning method="writeFilmReview" arg-names="filmName" pointcut-ref="watchFilmPointCut"/>
+
+            <aop:after-throwing method="refund" arg-names="filmName" pointcut-ref="watchFilmPointCut"/>
             <!-- 后置通知-->
-            <aop:after method="writeFilmReview" arg-names="filmName" pointcut-ref="watchFilmPointCut"/>
+            <aop:after method="walkOutOfCinema" arg-names="filmName" pointcut-ref="watchFilmPointCut"/>
         </aop:aspect>
     </aop:config>
 
