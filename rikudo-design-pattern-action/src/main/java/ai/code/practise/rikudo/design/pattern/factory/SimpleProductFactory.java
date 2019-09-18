@@ -25,4 +25,10 @@ public class SimpleProductFactory {
         }
         return product;
     }
+
+    public static void main(String[] args){
+        SimpleProductFactory factory = new SimpleProductFactory();
+        Product product = factory.produce("A");
+        product.description();
+    }
 }

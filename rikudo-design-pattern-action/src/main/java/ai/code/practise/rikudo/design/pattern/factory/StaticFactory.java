@@ -18,4 +18,12 @@ public class StaticFactory {
     public static Product produceB(){
         return new ProductB();
     }
+
+    public static void main(String[] args){
+        Product productA = StaticFactory.productA();
+        productA.description();
+
+        Product productB = StaticFactory.produceB();
+        productB.description();
+    }
 }
