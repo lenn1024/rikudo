@@ -14,4 +14,6 @@
         <property name="age" value="18"/>
     </bean>
 
+    <bean id="applicationListener" class="ai.code.practise.rikudo.spring.listener.RikudoApplicationListener"/>
+
 </beans>
