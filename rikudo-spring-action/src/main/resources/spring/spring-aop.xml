@@ -45,4 +45,20 @@
     <aop:aspectj-autoproxy />
     <bean id="driveAspect" class="ai.code.practise.rikudo.spring.aop.annotationconfig.DriveAspect"/>
     <bean id="rikudoDriver" class="ai.code.practise.rikudo.spring.aop.annotationconfig.RikudoDriver"/>
+
+    <!-- ProxyFactoryBean-->
+    <!--<bean id="proxyFactoryBean" class="org.springframework.aop.framework.ProxyFactoryBean">-->
+        <!--<property name="proxyInterfaces">-->
+            <!--<value></value>-->
+        <!--</property>-->
+        <!--<property name="interceptorNames">-->
+            <!--<list>-->
+                <!--<value></value>-->
+            <!--</list>-->
+        <!--</property>-->
+        <!--<property name="target">-->
+            <!--<bean class=""/>-->
+        <!--</property>-->
+    <!--</bean>-->
+
 </beans>
