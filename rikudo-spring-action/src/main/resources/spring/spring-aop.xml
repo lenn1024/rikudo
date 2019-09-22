@@ -47,14 +47,24 @@
     <bean id="rikudoDriver" class="ai.code.practise.rikudo.spring.aop.annotationconfig.RikudoDriver"/>
 
     <!-- ProxyFactoryBean-->
-    <bean id="airPlane" class="ai.code.practise.rikudo.spring.aop.proxyfactory.AirPlane"/>
-    <bean id="flyInterceptor" class="ai.code.practise.rikudo.spring.aop.proxyfactory.FlyInterceptor"/>
+    <bean id="airPlane" class="ai.code.practise.rikudo.spring.aop.proxyfactory.target.AirPlane">
+        <property name="companyName" value="中国国航"/>
+    </bean>
+
+    <!-- interceptors-->
+    <bean id="checkBeforeFlyInterceptor" class="ai.code.practise.rikudo.spring.aop.proxyfactory.interceptor.CheckBeforeFlyInterceptor"/>
+    <bean id="addOilBeforeFlyInterceptor" class="ai.code.practise.rikudo.spring.aop.proxyfactory.interceptor.AddOilBeforeFlyInterceptor"/>
+    <bean id="parkingAfterFlyInterceptor" class="ai.code.practise.rikudo.spring.aop.proxyfactory.interceptor.ParkingAfterFlyInterceptor"/>
+    <bean id="cleanAfterFlyInterceptor" class="ai.code.practise.rikudo.spring.aop.proxyfactory.interceptor.CleanAfterFlyInterceptor"/>
 
     <bean id="airPlaneProxy" class="org.springframework.aop.framework.ProxyFactoryBean">
-        <property name="proxyInterfaces" value="ai.code.practise.rikudo.spring.aop.proxyfactory.Flyable"/>
+        <property name="proxyInterfaces" value="ai.code.practise.rikudo.spring.aop.proxyfactory.target.Flyable"/>
         <property name="interceptorNames">
             <list>
-                <value>flyInterceptor</value>
+                <value>checkBeforeFlyInterceptor</value>
+                <value>addOilBeforeFlyInterceptor</value>
+                <value>cleanAfterFlyInterceptor</value>
+                <value>parkingAfterFlyInterceptor</value>
             </list>
         </property>
         <property name="target" ref="airPlane"/>

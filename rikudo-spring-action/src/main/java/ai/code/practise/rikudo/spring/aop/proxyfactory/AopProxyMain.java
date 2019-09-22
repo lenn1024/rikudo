@@ -1,5 +1,6 @@
 package ai.code.practise.rikudo.spring.aop.proxyfactory;
 
+import ai.code.practise.rikudo.spring.aop.proxyfactory.target.Flyable;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
