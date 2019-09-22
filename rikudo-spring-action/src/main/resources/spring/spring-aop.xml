@@ -52,19 +52,19 @@
     </bean>
 
     <!-- interceptors-->
-    <bean id="checkBeforeFlyInterceptor" class="ai.code.practise.rikudo.spring.aop.proxyfactory.interceptor.CheckBeforeFlyInterceptor"/>
-    <bean id="addOilBeforeFlyInterceptor" class="ai.code.practise.rikudo.spring.aop.proxyfactory.interceptor.AddOilBeforeFlyInterceptor"/>
-    <bean id="parkingAfterFlyInterceptor" class="ai.code.practise.rikudo.spring.aop.proxyfactory.interceptor.ParkingAfterFlyInterceptor"/>
-    <bean id="cleanAfterFlyInterceptor" class="ai.code.practise.rikudo.spring.aop.proxyfactory.interceptor.CleanAfterFlyInterceptor"/>
+    <bean id="checkBeforeFlyAdvice" class="ai.code.practise.rikudo.spring.aop.proxyfactory.advice.CheckBeforeFlyAdvice"/>
+    <bean id="addOilBeforeFlyAdvice" class="ai.code.practise.rikudo.spring.aop.proxyfactory.advice.AddOilBeforeFlyAdvice"/>
+    <bean id="parkingAfterFlyAdvice" class="ai.code.practise.rikudo.spring.aop.proxyfactory.advice.ParkingAfterFlyAdvice"/>
+    <bean id="cleanAfterFlyAdvice" class="ai.code.practise.rikudo.spring.aop.proxyfactory.advice.CleanAfterFlyAdvice"/>
 
     <bean id="airPlaneProxy" class="org.springframework.aop.framework.ProxyFactoryBean">
         <property name="proxyInterfaces" value="ai.code.practise.rikudo.spring.aop.proxyfactory.target.Flyable"/>
         <property name="interceptorNames">
             <list>
-                <value>checkBeforeFlyInterceptor</value>
-                <value>addOilBeforeFlyInterceptor</value>
-                <value>cleanAfterFlyInterceptor</value>
-                <value>parkingAfterFlyInterceptor</value>
+                <value>checkBeforeFlyAdvice</value>
+                <value>addOilBeforeFlyAdvice</value>
+                <value>cleanAfterFlyAdvice</value>
+                <value>parkingAfterFlyAdvice</value>
             </list>
         </property>
         <property name="target" ref="airPlane"/>
