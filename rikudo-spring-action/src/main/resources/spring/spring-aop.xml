@@ -47,18 +47,17 @@
     <bean id="rikudoDriver" class="ai.code.practise.rikudo.spring.aop.annotationconfig.RikudoDriver"/>
 
     <!-- ProxyFactoryBean-->
-    <!--<bean id="proxyFactoryBean" class="org.springframework.aop.framework.ProxyFactoryBean">-->
-        <!--<property name="proxyInterfaces">-->
-            <!--<value></value>-->
-        <!--</property>-->
-        <!--<property name="interceptorNames">-->
-            <!--<list>-->
-                <!--<value></value>-->
-            <!--</list>-->
-        <!--</property>-->
-        <!--<property name="target">-->
-            <!--<bean class=""/>-->
-        <!--</property>-->
-    <!--</bean>-->
+    <bean id="airPlane" class="ai.code.practise.rikudo.spring.aop.proxyfactory.AirPlane"/>
+    <bean id="flyInterceptor" class="ai.code.practise.rikudo.spring.aop.proxyfactory.FlyInterceptor"/>
+
+    <bean id="airPlaneProxy" class="org.springframework.aop.framework.ProxyFactoryBean">
+        <property name="proxyInterfaces" value="ai.code.practise.rikudo.spring.aop.proxyfactory.Flyable"/>
+        <property name="interceptorNames">
+            <list>
+                <value>flyInterceptor</value>
+            </list>
+        </property>
+        <property name="target" ref="airPlane"/>
+    </bean>
 
 </beans>
