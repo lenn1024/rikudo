@@ -24,7 +24,7 @@
             <aop:before method="buyTicket" arg-names="filmName" pointcut-ref="watchFilmPointCut"/>
             <!-- 返回后通知-->
             <aop:after-returning method="writeFilmReview" arg-names="filmName" pointcut-ref="watchFilmPointCut"/>
-
+            <!-- 异常通知-->
             <aop:after-throwing method="refund" arg-names="filmName" pointcut-ref="watchFilmPointCut"/>
             <!-- 后置通知-->
             <aop:after method="walkOutOfCinema" arg-names="filmName" pointcut-ref="watchFilmPointCut"/>
@@ -59,6 +59,8 @@
 
     <bean id="airPlaneProxy" class="org.springframework.aop.framework.ProxyFactoryBean">
         <property name="proxyInterfaces" value="ai.code.practise.rikudo.spring.aop.proxyfactory.target.Flyable"/>
+
+        <!-- 配置Advisor, 也可配置Advice，MethodInterceptor-->
         <property name="interceptorNames">
             <list>
                 <value>checkBeforeFlyAdvice</value>

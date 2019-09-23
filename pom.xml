@@ -20,6 +20,7 @@
         <module>rikudo-web</module>
         <module>rikudo-middleware</module>
         <module>rikudo-design-pattern-action</module>
+        <module>rikudo-algorithm-action</module>
     </modules>
 
     <properties>
