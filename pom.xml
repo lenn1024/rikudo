@@ -21,6 +21,7 @@
         <module>rikudo-middleware</module>
         <module>rikudo-design-pattern-action</module>
         <module>rikudo-algorithm-action</module>
+        <module>rikudo-dubbo-action</module>
     </modules>
 
     <properties>

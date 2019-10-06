@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+       xmlns:rikudo="http://rikudo.code.ai/rikudo"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://rikudo.code.ai/rikudo http://rikudo.code.ai/rikudo/rikudo.xsd ">
 
     <bean id="car" class="ai.code.practise.rikudo.spring.domain.Car">
         <property name="name" value="小蓝"/>
@@ -15,5 +18,8 @@
     </bean>
 
     <bean id="applicationListener" class="ai.code.practise.rikudo.spring.listener.RikudoApplicationListener"/>
+
+    <!-- Spring xml schema 扩展-->
+    <rikudo:extBean id="extBean" name="extBean practice"/>
 
 </beans>

@@ -1,6 +1,7 @@
 package ai.code.practise.rikudo.spring.ioc;
 
 import ai.code.practise.rikudo.spring.domain.Beauty;
+import ai.code.practise.rikudo.spring.domain.ExtBean;
 import ai.code.practise.rikudo.spring.event.RikudoApplicationEvent;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.ApplicationContext;
@@ -17,5 +18,8 @@ public class ApplicationContextMain {
 
         beauty.getApplicationEventPublisher()
                 .publishEvent(new RikudoApplicationEvent("发现华哥看片儿。"));
+
+        ExtBean extBean = (ExtBean) applicationContext.getBean("extBean");
+        log.info("extBean detail is: {}.", extBean);
     }
 }
